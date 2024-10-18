@@ -104,6 +104,14 @@ weather-forecast-app/
 - **Dynamic Backgrounds**: Changes background based on weather conditions for enhanced visual appeal.
 - **User Experience**: Designed with intuitive inputs, clear typography, and immediate feedback for a seamless user experience.
   
+## Code Explanation
+
+ - **App.jsx**: This is the root component that brings together the different parts of the app. It uses useWeather to fetch the weather data and passes it down to other components.
+ - **components/SearchBar.jsx**: A component that allows the user to input a city name and submit it to retrieve weather data.
+ - **components/WeatherCard.jsx**: Displays the current weather conditions, including temperature, humidity, wind speed, and a weather icon.
+ - **components/Forecast.jsx**: Displays the 5-day weather forecast with minimal details such as temperature and weather conditions.
+ - **hooks/useWeather.jsx**: A custom hook that handles all the API calls, fetching the current weather and the 5-day forecast.
+ - **utils/api.js**: Contains functions for interacting with the OpenWeatherMap API, making it easier to fetch data from the API without repeating the code.
 
 
 
