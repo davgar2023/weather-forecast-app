@@ -1,5 +1,6 @@
 //import React from 'react';
 import { useWeather } from '../hooks/useWeather';
+import { CSSTransition } from 'react-transition-group';
 
 // Forecast component to display 5-day forecast
 function Forecast() {
@@ -16,6 +17,13 @@ function Forecast() {
   const unitSymbol = units === 'metric' ? '°C' : '°F';
 
   return (
+
+    <CSSTransition
+    in={!!weatherData}
+    timeout={500}
+    classNames="fade"
+    unmountOnExit
+  >
     <div className="forecast-container">
       {dailyData.map((day, index) => (
         <div className="forecast-card" key={index}>
@@ -29,6 +37,8 @@ function Forecast() {
         </div>
       ))}
     </div>
+
+    </CSSTransition>
   );
 }
 

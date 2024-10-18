@@ -1,5 +1,6 @@
 
 import { useWeather } from '../hooks/useWeather';
+import { CSSTransition } from 'react-transition-group';
 
 // WeatherCard component to display current weather
 function WeatherCard() {
@@ -12,6 +13,14 @@ function WeatherCard() {
   const unitSymbol = units === 'metric' ? '°C' : '°F';
 
   return (
+
+    <CSSTransition
+    in={!!weatherData}
+    timeout={500}
+    classNames="fade"
+    unmountOnExit
+  >
+
     <div className="weather-card">
       <h2>{name}</h2>
       <img
@@ -26,6 +35,8 @@ function WeatherCard() {
         <p>Wind Speed: {wind.speed} {units === 'metric' ? 'm/s' : 'mph'}</p>
       </div>
     </div>
+
+    </CSSTransition>
   );
 }
 

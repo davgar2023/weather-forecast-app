@@ -99,6 +99,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .forecast-card {
@@ -114,20 +115,86 @@ body {
   height: 50px;
 }
 
+
+/* React Transition Group animations */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+
+/* Global styles for the forecast container */
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 /* Responsive design */
-@media (max-width: 1024px) {
+
+/* 5 cards per row for extra large screens */
+@media (min-width: 1200px) {
   .forecast-card {
-    width: calc(50% - 40px); /* Two cards per row */
+    width: calc(20% - 40px); /* Five cards per row */
+    margin: 10px;
   }
 
-  .weather-card{
+  .weather-card {
+    width: 97%;
+  }
+}
+
+/* 4 cards per row for large screens */
+@media (max-width: 1199px) and (min-width: 1024px) {
+  .forecast-card {
+    width: calc(25% - 40px); /* Four cards per row */
+    margin: 10px;
+  }
+
+  .weather-card {
+    width: 95%;
+  }
+}
+
+/* 3 cards per row for medium-large screens */
+@media (max-width: 1023px) and (min-width: 880px) {
+  .forecast-card {
+    width: calc(33.33% - 40px); /* Three cards per row */
+    margin: 10px;
+  }
+
+  .weather-card {
     width: 90%;
   }
 }
 
-@media (max-width: 768px) {
+/* 2 cards per row for medium screens */
+@media (max-width: 879px) and (min-width: 768px) {
   .forecast-card {
-    width: calc(100% - 40px); /* One card per row */
+    width: calc(50% - 40px); /* Two cards per row */
+    margin: 10px;
+  }
+
+  .weather-card {
+    width: 90%;
   }
 
   .weather-card img {
@@ -136,15 +203,19 @@ body {
   }
 }
 
-@media (max-width: 600px) {
-  
+/* 1 card per row for small screens */
+@media (max-width: 767px) {
+  .forecast-card {
+    width: calc(100% - 40px); /* One card per row (full width) */
+    margin: 10px;
+  }
+
+  .weather-card {
+    width: 90%;
+  }
 
   .weather-card img {
     width: 120px;
     height: 120px;
-  }
-
-  .forecast-card {
-    width: calc(100% - 40px); /* Full width for mobile */
   }
 }

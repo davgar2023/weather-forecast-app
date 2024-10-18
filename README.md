@@ -113,6 +113,15 @@ weather-forecast-app/
  - **hooks/useWeather.jsx**: A custom hook that handles all the API calls, fetching the current weather and the 5-day forecast.
  - **utils/api.js**: Contains functions for interacting with the OpenWeatherMap API, making it easier to fetch data from the API without repeating the code.
 
+## External Libraries
+ - **React**: The main framework used for building the user interface.
+ - **dotenv**: To securely manage environment variables (API key).
+ - **react-transition-group**: To create transition to weatherCard
+ - Install these libraries by running:
+
+bash
+
+npm install react dotenv react-transition-group
 
 
 ## 📜 License
